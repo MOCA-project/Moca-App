@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--    Tela Splash-->
+    <color name="azul_splash">#1C3073</color>
+    <color name="azul_escuro_splash">#040432</color>
+
+    <!--    Tela de Cadastro e Login-->
+    <color name="azul_botao">#186AC3</color>
+    <color name="cinza">#929292</color>
+
+    <!--    Telas da dashboard-->
+    <color name="fundo_dashboard">#F0F2F5</color>
+    <color name="verde">#4BA64F</color>
+    <color name="vermelho">#EC5959</color>
+    <color name="rosa">#E753C6</color>
+</resources>

@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Moca</string>
+    <string name="nome_empresa_minusculo">moca</string>
+
+
+    <!--    Tela de Login -->
+    <string name="entrar">Entrar</string>
+    <string name="esqueci_senha">Esqueceu sua senha?</string>
+    <string name="nao_possui_conta">Não é cadastrado?</string>
+    <string name="nome">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="telefone">Telefone</string>
+    <string name="senha">Senha</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+
+
+    <!--    Tela de Cadastro -->
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="ja_possui_conta">Já possui conta?</string>
+    <string name="title_activity_reset_password">ResetPassword</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <!--   Reset Password -->
+    <string name="texto_reset">Recuperação de Senha</string>
+    <string name="nova_senha">Nova senha</string>
+    <string name="nova_senha_confirme">Confirme nova senha</string>
+    <string name="reset">Confirmar</string>
+
+
+    <!--   Dashboard -->
+    <string name="mes">Mês</string>
+    <string-array name="meses">
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Março</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Setembro</item>
+        <item>Outubro</item>
+        <item>Novembro</item>
+        <item>Dezenbro</item>
+    </string-array>
+    <string name="saldo">Saldo</string>
+    <string name="receita">Receita</string>
+    <string name="receitas">Receitas</string>
+    <string name="despesa">Despesa</string>
+    <string name="despesas">Despesas</string>
+    <string name="balanco">Balanço</string>
+    <string name="cartoes">Cartões</string>
+    <string name="porquinho">Porquinho</string>
+    <string name="receita_categoria">Receitas por categoria</string>
+    <string name="despesa_categoria">Despesas por categoria</string>
+
+
+    <!--    Extrato -->
+
+</resources>
