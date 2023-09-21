@@ -16,4 +16,7 @@
     <color name="verde">#4BA64F</color>
     <color name="vermelho">#EC5959</color>
     <color name="rosa">#E753C6</color>
+
+    <!--    Tela de Extrato -->
+    <color name="fundo_extrato">#547BDF</color>
 </resources>

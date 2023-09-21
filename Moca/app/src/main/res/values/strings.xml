@@ -3,6 +3,21 @@
     <string name="nome_empresa_minusculo">moca</string>
 
 
+    <!--    Onboarding -->
+    <string name="btn_onboard_proximo">Próximo</string>
+    <!-- Titulos -->
+    <string name="titulo_onboarding_organizacao">Organização</string>
+    <string name="titulo_onboarding_limite_cartao">Limite do cartão</string>
+    <string name="titulo_onboarding_notificacoes">Notificações</string>
+    <string name="titulo_onboarding_matenha_controle">Mantenha o controle</string>
+    <!-- Textos -->
+    <string name="text_onboarding_organizacao">Organize de forma simples todas as suas transações financeiras, suas despesas, suas receitas, etc.</string>
+    <string name="text_onboarding_limite_cartao">Cadastre seus cartões, para ficar de olho no limite e começar a controlar gastos com precisão.</string>
+    <string name="text_onboarding_notificacoes">Receba notificações e SMS para manter-se informado sobre seu limite e ajuda-lo na sua organização financeira. </string>
+    <string name="text_onboarding_matenha_controle">Você ja deu o primeiro passo para sua transformação financeira, e nós vamos ajudar.</string>
+    <string name="btn_comecar">Vamos começar!</string>
+
+
     <!--    Tela de Login -->
     <string name="entrar">Entrar</string>
     <string name="esqueci_senha">Esqueceu sua senha?</string>

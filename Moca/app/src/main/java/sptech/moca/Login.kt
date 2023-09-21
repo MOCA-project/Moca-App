@@ -33,7 +33,7 @@ class Login : AppCompatActivity() {
 //==================================================================================================
         val usuarioLogado = findViewById<Button>(R.id.btnLogin)
         usuarioLogado.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Onboarding::class.java)
             startActivity(intent)
         }
 
