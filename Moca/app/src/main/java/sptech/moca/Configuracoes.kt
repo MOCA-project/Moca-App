@@ -3,12 +3,9 @@ package sptech.moca
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Dashboard : AppCompatActivity() {
+class Configuracoes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
-
-        // Esconder a barra de menu do topo
-        supportActionBar?.hide()
+        setContentView(R.layout.activity_configuracoes)
     }
 }

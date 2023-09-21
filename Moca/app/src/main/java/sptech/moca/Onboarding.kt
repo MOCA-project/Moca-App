@@ -1,5 +1,6 @@
 package sptech.moca
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -39,7 +40,25 @@ class Onboarding : AppCompatActivity() {
 
         addLinearLayoutOnboarding(0)
         viewPager.addOnPageChangeListener(changeListener)
+
+
+
+
+
+
+
+
+//==================================================================================================
+//        Mudar para a tela de Dashboard
+//==================================================================================================
+        btnComecar.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+
+
 
     private fun addLinearLayoutOnboarding(position: Int) {
         dots = Array(sliderAdapter.count) { TextView(this) }

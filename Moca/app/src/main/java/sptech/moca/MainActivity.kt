@@ -1,15 +1,17 @@
 package sptech.moca
 
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import androidx.core.widget.NestedScrollView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -28,13 +30,10 @@ class MainActivity : AppCompatActivity() {
             fabDespesas.startAnimation(fabClose)
             fabPorquinho.startAnimation(fabClose)
             semiTransparentBackground.visibility = View.GONE
-
-            // Desabilitar cliques
             fabCartoes.isClickable = false
             fabReceitas.isClickable = false
             fabDespesas.isClickable = false
             fabPorquinho.isClickable = false
-
         } else {
             fabAdd.startAnimation(rotateForward)
             fabCartoes.startAnimation(fabOpen)
@@ -42,41 +41,49 @@ class MainActivity : AppCompatActivity() {
             fabDespesas.startAnimation(fabOpen)
             fabPorquinho.startAnimation(fabOpen)
             semiTransparentBackground.visibility = View.VISIBLE
-
-
-            // Habilitar cliques
             fabCartoes.isClickable = true
             fabReceitas.isClickable = true
             fabDespesas.isClickable = true
             fabPorquinho.isClickable = true
         }
-
-        isOpen = !isOpen // Inverter o estado isOpen
+        isOpen = !isOpen // Inverter o estado do isOpen
     }
 
-    //==================================================================================================
-//        Definindo botões fab
-//==================================================================================================
-    lateinit var fabAdd: FloatingActionButton
-    lateinit var fabReceitas: FloatingActionButton
-    lateinit var fabDespesas: FloatingActionButton
-    lateinit var fabPorquinho: FloatingActionButton
-    lateinit var fabCartoes: FloatingActionButton
+
+
+
+
+
 
     //==================================================================================================
-//        Definindo animações para os botões fab
+//        Definindo botões fab e animações para os botões
 //==================================================================================================
-    lateinit var fabOpen: Animation
-    lateinit var fabClose: Animation
-    lateinit var rotateForward: Animation
-    lateinit var rotateBackward: Animation
+    private lateinit var fabAdd: FloatingActionButton
+    private lateinit var fabReceitas: FloatingActionButton
+    private lateinit var fabDespesas: FloatingActionButton
+    private lateinit var fabPorquinho: FloatingActionButton
+    private lateinit var fabCartoes: FloatingActionButton
+    private lateinit var fabOpen: Animation
+    private lateinit var fabClose: Animation
+    private lateinit var rotateForward: Animation
+    private lateinit var rotateBackward: Animation
+    private var isOpen: Boolean = false   //Por padrão é falso
 
-    var isOpen: Boolean = false // Por padrão, isto é falso
+
+
+
+
+
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         // Removendo a sombra do menu bottom
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -86,6 +93,14 @@ class MainActivity : AppCompatActivity() {
 
         // Esconder a barra de menu do topo
         supportActionBar?.hide()
+
+
+
+
+
+
+
+
 
 
 //==================================================================================================
@@ -154,6 +169,13 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
+
+
+
+
+
 
     //==================================================================================================
 //        Função para aplicar a cor ao ícone

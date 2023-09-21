@@ -9,6 +9,7 @@
 
 
     <FrameLayout
+        android:id="@+id/frame_Layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/activity_dashboard" />
+            <include
+                android:id="@+id/include_main"
+                layout="@layout/activity_dashboard" />
 
         </androidx.core.widget.NestedScrollView>
 
