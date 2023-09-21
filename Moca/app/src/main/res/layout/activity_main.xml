@@ -9,18 +9,24 @@
 
 
     <FrameLayout
-        android:id="@+id/frame_Layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <include
-                android:id="@+id/include_main"
-                layout="@layout/activity_dashboard" />
+            <FrameLayout
+                android:id="@+id/frame_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+
+<!--            <include-->
+<!--                android:id="@+id/include_main"-->
+<!--                layout="@layout/activity_dashboard" />-->
 
         </androidx.core.widget.NestedScrollView>
 

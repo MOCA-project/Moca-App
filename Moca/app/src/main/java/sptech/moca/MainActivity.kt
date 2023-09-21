@@ -2,18 +2,18 @@ package sptech.moca
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
+
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
+import androidx.fragment.app.FragmentTransaction
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import sptech.moca.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rotateForward: Animation
     private lateinit var rotateBackward: Animation
     private var isOpen: Boolean = false   //Por padrão é falso
+    private lateinit var binding: ActivityMainBinding
 
 
 
@@ -81,7 +82,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        replaceFragment(DashboardFragment())
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+
+            when(it.itemId){
+                R.id.home -> replaceFragment(DashboardFragment())
+                R.id.extrato -> replaceFragment(ExtratoFragment())
+//                R.id.calculadora -> replaceFragment(Calculadora())
+//                R.id.configuracoes -> replaceFragment(Configuracoes())
+
+                else ->{
+
+                }
+            }
+            true
+
+        }
 
 
 
@@ -192,4 +211,18 @@ class MainActivity : AppCompatActivity() {
             fab.setImageDrawable(fabIcon)
         }
     }
+
+
+
+
+
+
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_Layout, fragment)
+        fragmentTransaction.commit()
+    }
+
 }

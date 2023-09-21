@@ -1,164 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fundo_extrato"
+    android:orientation="vertical"
     tools:context=".Extrato">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bola_clara_extrato"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/bola_escuro_extrato"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_editor_absoluteY="30dp"
-        tools:ignore="MissingConstraints" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="40dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_arrow_left"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/bola_clara_extrato"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/bola_escuro_extrato"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints">
+                app:layout_editor_absoluteY="30dp"
+                tools:ignore="MissingConstraints" />
 
-                <Spinner
-                    android:id="@+id/spinner_meses"
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/background_spinner_dashboard"
-                    android:entries="@array/meses"
-                    android:paddingHorizontal="15dp"
-                    android:theme="@style/MeuEstiloDoSpinner" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="40dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background_spinner_meses_black">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:paddingStart="10dp"
-                        android:text="@string/mes"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp">
 
                     <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_keyboard_arrow_down_" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints">
 
-                </LinearLayout>
+                        <Spinner
+                            android:id="@+id/spinner_meses"
+                            android:layout_width="130dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_spinner_dashboard"
+                            android:entries="@array/meses"
+                            android:paddingHorizontal="15dp"
+                            android:theme="@style/MeuEstiloDoSpinner" />
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/background_spinner_meses_black">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:paddingStart="10dp"
+                                android:text="@string/mes"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_keyboard_arrow_down_" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <!--        Parte principal da tela de extrato-->
+    </ScrollView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/white"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="10dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="20dp">
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="40dp">-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:layout_marginTop="20dp">
+    <!--        <ImageView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:src="@drawable/bola_clara_extrato"-->
+    <!--            tools:ignore="MissingConstraints" />-->
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginEnd="40dp"
-                        android:background="@drawable/background_saldo"
-                        android:elevation="20dp"
-                        android:src="@drawable/ic_attach_money"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:ignore="MissingConstraints" />
+    <!--        <ImageView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="50dp"-->
+    <!--            android:src="@drawable/bola_escuro_extrato"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_editor_absoluteY="30dp"-->
+    <!--            tools:ignore="MissingConstraints" />-->
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewSaldo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/white"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="15dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="parent">
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:paddingTop="40dp">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:text="@string/saldo"
-                            android:textColor="@color/azul_botao"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
+    <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginHorizontal="20dp">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="50dp"
-                            android:text="R$548,56"
-                            android:textColor="@color/black"
-                            android:textSize="30sp"
-                            android:textStyle="bold" />
+    <!--                <ImageView-->
+    <!--                    android:id="@+id/imageView"-->
+    <!--                    android:layout_width="30dp"-->
+    <!--                    android:layout_height="30dp"-->
+    <!--                    android:src="@drawable/ic_arrow_left"-->
+    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                    </androidx.cardview.widget.CardView>
+    <!--                <LinearLayout-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintStart_toEndOf="@+id/imageView"-->
+    <!--                    app:layout_constraintTop_toTopOf="parent"-->
+    <!--                    tools:ignore="MissingConstraints">-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--                    <Spinner-->
+    <!--                        android:id="@+id/spinner_meses"-->
+    <!--                        android:layout_width="130dp"-->
+    <!--                        android:layout_height="40dp"-->
+    <!--                        android:background="@drawable/background_spinner_dashboard"-->
+    <!--                        android:entries="@array/meses"-->
+    <!--                        android:paddingHorizontal="15dp"-->
+    <!--                        android:theme="@style/MeuEstiloDoSpinner" />-->
 
-            </LinearLayout>
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@drawable/background_spinner_meses_black">-->
 
-        </androidx.cardview.widget.CardView>
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="match_parent"-->
+    <!--                            android:gravity="center"-->
+    <!--                            android:paddingStart="10dp"-->
+    <!--                            android:text="@string/mes"-->
+    <!--                            android:textColor="@color/white"-->
+    <!--                            android:textSize="16sp" />-->
 
-    </LinearLayout>
+    <!--                        <ImageView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="match_parent"-->
+    <!--                            android:src="@drawable/ic_keyboard_arrow_down_" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--                    </LinearLayout>-->
+
+
+    <!--                </LinearLayout>-->
+
+    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--        </LinearLayout>-->
+
+    <!--    </ScrollView>-->
+
+
+    <!--        Parte principal da tela de extrato-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="30dp"-->
+    <!--            android:backgroundTint="@color/white"-->
+    <!--            app:cardCornerRadius="50dp"-->
+    <!--            app:cardElevation="10dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="20dp">-->
+
+    <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="130dp"-->
+    <!--                    android:layout_marginTop="20dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="50dp"-->
+    <!--                        android:layout_height="50dp"-->
+    <!--                        android:layout_marginEnd="40dp"-->
+    <!--                        android:background="@drawable/background_saldo"-->
+    <!--                        android:elevation="20dp"-->
+    <!--                        android:src="@drawable/ic_attach_money"-->
+    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                        tools:ignore="MissingConstraints" />-->
+
+    <!--                    <androidx.cardview.widget.CardView-->
+    <!--                        android:id="@+id/cardViewSaldo"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:layout_marginTop="20dp"-->
+    <!--                        android:backgroundTint="@color/white"-->
+    <!--                        app:cardCornerRadius="12dp"-->
+    <!--                        app:cardElevation="15dp"-->
+    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                        app:layout_constraintStart_toEndOf="parent"-->
+    <!--                        app:layout_constraintTop_toBottomOf="parent">-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="20dp"-->
+    <!--                            android:text="@string/saldo"-->
+    <!--                            android:textColor="@color/azul_botao"-->
+    <!--                            android:textSize="20dp"-->
+    <!--                            android:textStyle="bold" />-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_marginStart="20dp"-->
+    <!--                            android:layout_marginTop="50dp"-->
+    <!--                            android:text="R$548,56"-->
+    <!--                            android:textColor="@color/black"-->
+    <!--                            android:textSize="30sp"-->
+    <!--                            android:textStyle="bold" />-->
+
+    <!--                    </androidx.cardview.widget.CardView>-->
+
+    <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+</LinearLayout>
