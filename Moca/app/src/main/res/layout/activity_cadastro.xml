@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Cadastro">
+    tools:context=".activity.Cadastro">
 
     <!-- Imagem bola azul claro superior direito -->
     <ImageView
@@ -46,8 +46,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nome_empresa_minusculo"
                 android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -240,7 +241,8 @@
             android:text="@string/cadastrar"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_bold"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

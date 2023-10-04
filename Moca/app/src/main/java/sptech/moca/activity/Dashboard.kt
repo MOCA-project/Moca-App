@@ -1,7 +1,8 @@
-package sptech.moca
+package sptech.moca.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import sptech.moca.R
 
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

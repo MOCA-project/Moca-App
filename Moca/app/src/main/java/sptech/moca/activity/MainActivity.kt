@@ -1,4 +1,4 @@
-package sptech.moca
+package sptech.moca.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,13 +6,20 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.fragment.app.FragmentTransaction
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import sptech.moca.fragment.CalculadoraFragment
+import sptech.moca.fragment.CartoesFragment
+import sptech.moca.fragment.ConfiguracoesFragment
+import sptech.moca.fragment.DashboardFragment
+import sptech.moca.fragment.DespesaFragment
+import sptech.moca.fragment.ExtratoFragment
+import sptech.moca.fragment.PorquinhoFragment
+import sptech.moca.fragment.ReceitaFragment
+import sptech.moca.R
 import sptech.moca.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -91,8 +98,8 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.home -> replaceFragment(DashboardFragment())
                 R.id.extrato -> replaceFragment(ExtratoFragment())
-//                R.id.calculadora -> replaceFragment(Calculadora())
-//                R.id.configuracoes -> replaceFragment(Configuracoes())
+                R.id.calculadora -> replaceFragment(CalculadoraFragment())
+                R.id.configuracoes -> replaceFragment(ConfiguracoesFragment())
 
                 else ->{
 
@@ -146,22 +153,30 @@ class MainActivity : AppCompatActivity() {
 
         fabCartoes.setOnClickListener {
             toggleMenu()
-            Toast.makeText(this@MainActivity, "cartoes clicado", Toast.LENGTH_SHORT).show()
+            val cartoesFragment = CartoesFragment()
+            replaceFragment(cartoesFragment)
+//            Toast.makeText(this@MainActivity, "cartoes clicado", Toast.LENGTH_SHORT).show()
         }
 
         fabReceitas.setOnClickListener {
             toggleMenu()
-            Toast.makeText(this@MainActivity, "receitas clicado", Toast.LENGTH_SHORT).show()
+            val receitaFragment = ReceitaFragment()
+            replaceFragment(receitaFragment)
+//            Toast.makeText(this@MainActivity, "receitas clicado", Toast.LENGTH_SHORT).show()
         }
 
         fabDespesas.setOnClickListener {
             toggleMenu()
-            Toast.makeText(this@MainActivity, "despesas clicado", Toast.LENGTH_SHORT).show()
+            val despesaFragment = DespesaFragment()
+            replaceFragment(despesaFragment)
+//            Toast.makeText(this@MainActivity, "despesas clicado", Toast.LENGTH_SHORT).show()
         }
 
         fabPorquinho.setOnClickListener {
             toggleMenu()
-            Toast.makeText(this@MainActivity, "porquinho clicado", Toast.LENGTH_SHORT).show()
+            val porquinhoFragment = PorquinhoFragment()
+            replaceFragment(porquinhoFragment)
+//            Toast.makeText(this@MainActivity, "porquinho clicado", Toast.LENGTH_SHORT).show()
         }
 
 

@@ -1,4 +1,4 @@
-package sptech.moca
+package sptech.moca.activity
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import sptech.moca.R
 
 class SliderAdapter(private val context: Context) : PagerAdapter() {
 

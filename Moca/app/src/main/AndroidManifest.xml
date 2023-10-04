@@ -13,39 +13,51 @@
         android:theme="@style/Theme.Moca"
         tools:targetApi="31">
         <activity
-            android:name=".Configuracoes"
+            android:name=".activity.Porquinho"
             android:exported="false" />
         <activity
-            android:name=".Calculadora"
+            android:name=".activity.Cartoes"
             android:exported="false" />
         <activity
-            android:name=".Onboarding"
+            android:name=".activity.Despesa"
             android:exported="false" />
         <activity
-            android:name=".Extrato"
+            android:name=".activity.Receita"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".activity.Configuracoes"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Calculadora"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Onboarding"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Extrato"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Dashboard"
             android:exported="false"
             android:theme="@style/MenuTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:theme="@style/MenuTheme" />
         <activity
-            android:name=".ResetPassword"
+            android:name=".activity.ResetPassword"
             android:exported="false"
             android:theme="@style/MenuTheme" />
         <activity
-            android:name=".Login"
+            android:name=".activity.Login"
             android:exported="false"
             android:theme="@style/MenuTheme" />
         <activity
-            android:name=".Cadastro"
+            android:name=".activity.Cadastro"
             android:exported="false"
             android:theme="@style/MenuTheme" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".activity.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

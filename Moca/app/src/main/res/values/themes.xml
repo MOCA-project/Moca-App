@@ -37,4 +37,12 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+
+
+    <style name="notificacoesSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/verde</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+        <item name="android:colorForeground">@color/cinza_texto</item>
+    </style>
 </resources>

@@ -1,4 +1,4 @@
-package sptech.moca
+package sptech.moca.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import sptech.moca.R
 
 class Cadastro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

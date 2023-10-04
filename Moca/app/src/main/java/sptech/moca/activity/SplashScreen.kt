@@ -1,10 +1,11 @@
-package sptech.moca
+package sptech.moca.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.constraintlayout.motion.widget.MotionLayout
+import sptech.moca.R
 
 class SplashScreen : AppCompatActivity() {
 

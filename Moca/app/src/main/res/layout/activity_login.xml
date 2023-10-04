@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Login">
+    tools:context=".activity.Login">
 
     <!-- Imagem bola azul claro superior direito -->
     <ImageView
@@ -44,9 +44,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/nome_empresa_minusculo"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="35sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -153,6 +154,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:background="@drawable/round_back_primary_15"
+            android:fontFamily="@font/montserrat_bold"
             android:text="@string/entrar"
             android:textAllCaps="false"
             android:textColor="@color/white"

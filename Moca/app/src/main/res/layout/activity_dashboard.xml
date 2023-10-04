@@ -7,7 +7,7 @@
     android:background="@color/fundo_dashboard"
     android:paddingHorizontal="20dp"
     android:paddingBottom="90dp"
-    tools:context=".Dashboard">
+    tools:context=".activity.Dashboard">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -90,6 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="@string/saldo"
                         android:textColor="@color/azul_botao"
                         android:textSize="20dp"
@@ -100,6 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="50dp"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="R$548,56"
                         android:textColor="@color/black"
                         android:textSize="30sp"
@@ -142,6 +144,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_bold"
                             android:text="@string/receita"
                             android:textColor="@color/azul_botao"
                             android:textSize="16sp"
@@ -153,6 +156,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="30dp"
+                            android:fontFamily="@font/montserrat_bold"
                             android:text="R$1200,00"
                             android:textColor="@color/black"
                             android:textSize="20sp"
@@ -191,6 +195,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_bold"
                             android:text="@string/despesa"
                             android:textColor="@color/azul_botao"
                             android:textSize="16sp"
@@ -202,6 +207,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="30dp"
+                            android:fontFamily="@font/montserrat_bold"
                             android:text="R$651,44"
                             android:textColor="@color/black"
                             android:textSize="20sp"
@@ -264,11 +270,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingHorizontal="20dp">
+                            android:paddingHorizontal="10dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:text="@string/receita"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
@@ -277,6 +284,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:gravity="end"
                                 android:text="R$1200,00"
                                 android:textColor="@color/verde"
@@ -289,11 +297,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:paddingHorizontal="20dp">
+                            android:paddingHorizontal="10dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:text="@string/despesa"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
@@ -302,6 +311,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:gravity="end"
                                 android:text="R$651,44"
                                 android:textColor="@color/vermelho"
@@ -313,7 +323,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp"
                             android:background="@color/black" />
 
@@ -322,11 +332,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:paddingHorizontal="20dp">
+                            android:paddingHorizontal="10dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:text="@string/balanco"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
@@ -335,6 +346,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:gravity="end"
                                 android:text="R$548,56"
                                 android:textColor="@color/black"
@@ -373,7 +385,8 @@
                         android:padding="10dp"
                         android:text="@string/receita_categoria"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/montserrat_bold"/>
 
 
                     <LinearLayout
@@ -477,7 +490,8 @@
                         android:padding="10dp"
                         android:text="@string/despesa_categoria"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/montserrat_bold"/>
 
 
                     <LinearLayout
@@ -587,7 +601,8 @@
                                 android:text="@string/cartoes"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_bold"/>
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -628,7 +643,8 @@
                                 android:text="@string/porquinho"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_bold"/>
 
                             <ImageView
                                 android:layout_width="wrap_content"

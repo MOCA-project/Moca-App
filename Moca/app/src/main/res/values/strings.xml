@@ -5,6 +5,7 @@
 
     <!--    Onboarding -->
     <string name="btn_onboard_proximo">Próximo</string>
+    <string name="pular">Pular</string>
     <!-- Titulos -->
     <string name="titulo_onboarding_organizacao">Organização</string>
     <string name="titulo_onboarding_limite_cartao">Limite do cartão</string>
@@ -16,6 +17,13 @@
     <string name="text_onboarding_notificacoes">Receba notificações e SMS para manter-se informado sobre seu limite e ajuda-lo na sua organização financeira. </string>
     <string name="text_onboarding_matenha_controle">Você ja deu o primeiro passo para sua transformação financeira, e nós vamos ajudar.</string>
     <string name="btn_comecar">Vamos começar!</string>
+
+
+    <!--    Menu -->
+    <string name="home">Home</string>
+    <string name="extrato">Extrato</string>
+    <string name="calculadora">Calculadora</string>
+    <string name="configuracoes">Configurações</string>
 
 
     <!--    Tela de Login -->
@@ -80,5 +88,29 @@
 
 
     <!--    Extrato -->
+
+
+    <!--    Configurações -->
+    <string name="lembrete_notificacao">Notificações</string>
+    <string name="lembrete_sms">Notificações SMS</string>
+    <string name="numero_celular">Número de celular</string>
+    <string name="sair">Sair</string>
+    <string name="privacidade">Privacidade</string>
+    <string name="tema_escuro">Modo escuro</string>
+
+
+    <!--    Calculadora -->
+    <string name="calculadora_investimento">Calculadora de investimento</string>
+    <string name="valor_inicial">Valor inicial</string>
+    <string name="aporte_mensal">Aporte mensal</string>
+    <string name="taxa_juros">Taxa de juros</string>
+    <string name="periodo">Período</string>
+    <string name="limpar_calculadora">Limpar</string>
+    <string name="calcular">Calcular</string>
+    <string name="valor_estimado">Valor total estimado</string>
+
+
+    <!--    Receita -->
+    <string name="nova_receita">Nova Receita</string>
 
 </resources>

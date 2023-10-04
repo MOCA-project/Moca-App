@@ -1,6 +1,7 @@
-package sptech.moca
+package sptech.moca.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -9,8 +10,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import sptech.moca.R
 
 class Login : AppCompatActivity() {
+
+    private lateinit var onBoardingScreen: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -33,8 +38,22 @@ class Login : AppCompatActivity() {
 //==================================================================================================
         val usuarioLogado = findViewById<Button>(R.id.btnLogin)
         usuarioLogado.setOnClickListener {
-            val intent = Intent(this, Onboarding::class.java)
-            startActivity(intent)
+
+            onBoardingScreen = getSharedPreferences("onBoardingScreen", MODE_PRIVATE)
+            val isFirstTime: Boolean = onBoardingScreen.getBoolean("firstTime", true)
+
+            if(isFirstTime){
+                var editor: SharedPreferences.Editor = onBoardingScreen.edit()
+                editor.putBoolean("firstTime", false)
+                editor.commit()
+                val intent = Intent(this, Onboarding::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
 

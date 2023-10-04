@@ -16,7 +16,16 @@
     <color name="verde">#4BA64F</color>
     <color name="vermelho">#EC5959</color>
     <color name="rosa">#E753C6</color>
+    <color name="cinza_texto">#67748E</color>
 
     <!--    Tela de Extrato -->
     <color name="fundo_extrato">#547BDF</color>
+
+
+    <!--    Tela de receitas -->
+    <color name="fundo_receita">#62B866</color>
+
+
+    <!--    Tela de despesas -->
+    <color name="fundo_despesa">#EB5050</color>
 </resources>

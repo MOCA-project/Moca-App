@@ -1,17 +1,19 @@
-package sptech.moca
+package sptech.moca.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
+import sptech.moca.R
 
 class Onboarding : AppCompatActivity() {
 
@@ -20,6 +22,8 @@ class Onboarding : AppCompatActivity() {
     private lateinit var linearLayout: LinearLayout
     private lateinit var sliderAdapter: SliderAdapter
     private lateinit var btnComecar: Button
+    private lateinit var animacao: Animation
+    private var currentPos: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -57,6 +61,14 @@ class Onboarding : AppCompatActivity() {
         }
     }
 
+    fun pular(view: View) {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    fun proximo(view: View) {
+        viewPager.currentItem = currentPos + 1
+    }
 
 
 
@@ -90,6 +102,8 @@ class Onboarding : AppCompatActivity() {
             // Implemente o comportamento desejado aqui
             addLinearLayoutOnboarding(position)
 
+            currentPos = position
+
             if (position == 0) {
                 btnComecar.visibility = View.INVISIBLE
             } else if (position == 1) {
@@ -97,6 +111,8 @@ class Onboarding : AppCompatActivity() {
             } else if (position == 2) {
                 btnComecar.visibility = View.INVISIBLE
             } else {
+                animacao = AnimationUtils.loadAnimation(this@Onboarding, R.anim.bottom_anim)
+                btnComecar.animation = animacao
                 btnComecar.visibility = View.VISIBLE
             }
 
