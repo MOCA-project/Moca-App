@@ -1,5 +1,6 @@
 package sptech.moca.activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +8,7 @@ import android.view.WindowManager
 import androidx.constraintlayout.motion.widget.MotionLayout
 import sptech.moca.R
 
-class SplashScreen : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var motionLayout: MotionLayout
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,16 @@ class SplashScreen : AppCompatActivity() {
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-                startActivity(Intent(this@SplashScreen, Login::class.java))
+                val sharedPreferences = getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
+
+                if (sharedPreferences.contains("idUsuario") && sharedPreferences.contains("token")) {
+                    // As SharedPreferences existem e estão preenchidas
+                    startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                } else {
+                    // As SharedPreferences não existem ou não estão preenchidas
+                    startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
+                }
+
                 finish()
             }
 

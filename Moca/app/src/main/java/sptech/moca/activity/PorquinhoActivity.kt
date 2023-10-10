@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import sptech.moca.R
 
-class Configuracoes : AppCompatActivity() {
+class PorquinhoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_configuracoes)
+        setContentView(R.layout.activity_porquinho)
     }
 }

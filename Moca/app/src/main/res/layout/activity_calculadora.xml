@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="90dp"
-    tools:context=".activity.Calculadora">
+    tools:context=".activity.CalculadoraActivity">
 
     <ScrollView
         android:layout_width="match_parent"

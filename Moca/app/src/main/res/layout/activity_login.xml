@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activity.Login">
+    tools:context=".activity.LoginActivity">
 
     <!-- Imagem bola azul claro superior direito -->
     <ImageView
@@ -136,11 +136,19 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/mensagem_de_erro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/vermelho"
+            android:textSize="12sp" />
+
+        <TextView
             android:id="@+id/esqueceuSenhaTextBn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
             android:text="@string/esqueci_senha"
             android:textColor="@color/azul_botao"

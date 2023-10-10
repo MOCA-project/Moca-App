@@ -1,4 +1,4 @@
-package sptech.moca.activity
+package sptech.moca.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

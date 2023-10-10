@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import sptech.moca.R
 
-class Receita : AppCompatActivity() {
+class DespesaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_receita)
+        setContentView(R.layout.activity_despesa)
     }
 }

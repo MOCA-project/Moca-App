@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/fundo_extrato"
     android:orientation="vertical"
-    tools:context=".activity.Extrato">
+    tools:context=".activity.ExtratoActivity">
 
     <ScrollView
         android:layout_width="match_parent"

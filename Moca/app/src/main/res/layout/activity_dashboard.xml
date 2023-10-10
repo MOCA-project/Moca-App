@@ -7,7 +7,7 @@
     android:background="@color/fundo_dashboard"
     android:paddingHorizontal="20dp"
     android:paddingBottom="90dp"
-    tools:context=".activity.Dashboard">
+    tools:context=".activity.DashboardActivity">
 
     <ScrollView
         android:layout_width="match_parent"

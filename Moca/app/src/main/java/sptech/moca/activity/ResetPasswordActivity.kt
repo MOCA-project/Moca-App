@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import sptech.moca.R
 
-class ResetPassword : AppCompatActivity() {
+class ResetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
@@ -22,7 +22,7 @@ class ResetPassword : AppCompatActivity() {
 //==================================================================================================
         val textJaPossuiLogin = findViewById<TextView>(R.id.entrarTextBtn)
         textJaPossuiLogin.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

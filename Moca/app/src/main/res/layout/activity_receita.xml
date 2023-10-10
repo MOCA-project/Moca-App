@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/fundo_receita"
     android:paddingBottom="90dp"
-    tools:context=".activity.Receita">
+    tools:context=".activity.ReceitaActivity">
 
     <ScrollView
         android:layout_width="match_parent"

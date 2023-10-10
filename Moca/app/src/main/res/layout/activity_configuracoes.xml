@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingBottom="90dp"
     android:orientation="vertical"
-    tools:context=".activity.Configuracoes">
+    tools:context=".activity.ConfiguracoesActivity">
 
     <ScrollView
         android:layout_width="match_parent"

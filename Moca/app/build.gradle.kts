@@ -5,7 +5,11 @@ plugins {
 
 android {
     namespace = "sptech.moca"
-    compileSdk = 33
+    compileSdk = 34
+
+    buildFeatures {
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId = "sptech.moca"

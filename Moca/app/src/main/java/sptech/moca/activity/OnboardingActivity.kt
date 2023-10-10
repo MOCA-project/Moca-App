@@ -14,8 +14,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
 import sptech.moca.R
+import sptech.moca.adapter.SliderAdapter
 
-class Onboarding : AppCompatActivity() {
+class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var dots: Array<TextView>
     private lateinit var viewPager: ViewPager
@@ -111,7 +112,7 @@ class Onboarding : AppCompatActivity() {
             } else if (position == 2) {
                 btnComecar.visibility = View.INVISIBLE
             } else {
-                animacao = AnimationUtils.loadAnimation(this@Onboarding, R.anim.bottom_anim)
+                animacao = AnimationUtils.loadAnimation(this@OnboardingActivity, R.anim.bottom_anim)
                 btnComecar.animation = animacao
                 btnComecar.visibility = View.VISIBLE
             }
