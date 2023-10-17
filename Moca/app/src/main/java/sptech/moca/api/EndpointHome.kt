@@ -8,7 +8,6 @@ import retrofit2.http.Path
 import sptech.moca.model.HomeInformationsModel
 
 interface EndpointHome {
-    // **************************************
     // Requsição das informações da DASHBOARD
     @Headers("Content-Type: application/json")
     @GET("home/{idUsuario}/{mes}/{ano}")
