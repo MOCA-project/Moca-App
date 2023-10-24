@@ -13,12 +13,12 @@ interface EndpointReceita {
 
     // Requsição das informações da RECEITAS
     @Headers("Content-Type: application/json")
-    @GET("receitas/{idUsuario}/{novoMes}/{novoAno}")
+    @GET("receitas/{idUsuario}/{mes}/{ano}")
     fun getInformacoesReceita(
         @Path("idUsuario") idUsuario: Long,
         @Path("mes") mes: Int,
         @Path("ano") ano: Int
-    ): Call<ReceitaModel>
+    ): Call<List<ReceitaModel>>
 
 
     // Cadastrar receitas

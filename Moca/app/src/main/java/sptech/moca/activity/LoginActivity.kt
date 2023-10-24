@@ -45,10 +45,10 @@ class LoginActivity : AppCompatActivity() {
         //============================================================================
         // Mudar para a tela de resetar senha
         //============================================================================
-        binding.esqueceuSenhaTextBn.setOnClickListener {
-            val intent = Intent(this, ResetPasswordActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.esqueceuSenhaTextBn.setOnClickListener {
+//            val intent = Intent(this, ResetPasswordActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
         //============================================================================
@@ -94,7 +94,8 @@ class LoginActivity : AppCompatActivity() {
     // Retrofit
     //============================================================================
     private fun login() {
-        val retrofitClient = NetworkUtils.getRetrofitInstance("http://26.239.63.16:8080/api/")
+        val retrofitClient = NetworkUtils.getRetrofitInstance()
+//        val retrofitClient = NetworkUtils.getRetrofitInstance("https://54.225.15.170:8443/api/")
         val endpoint = retrofitClient.create(EndpointClient::class.java)
 
         // Crie sua carga útil "raw" como uma String
@@ -108,15 +109,12 @@ class LoginActivity : AppCompatActivity() {
         callback.enqueue(object : retrofit2.Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
                 if (response.isSuccessful) {
-                    "".also { binding.mensagemDeErro.text = it }
                     // Lógica para tratamento de login bem-sucedido
                     val user = response.body()
 
                     if (user != null) {
-
                         // Navegue para a tela de Onboarding ou tela principal com base na primeira vez de acesso
-                        val onBoardingScreen =
-                            getSharedPreferences("onBoardingScreen", MODE_PRIVATE)
+                        val onBoardingScreen = getSharedPreferences("onBoardingScreen", MODE_PRIVATE)
                         val isFirstTime = onBoardingScreen.getBoolean("firstTime", true)
 
                         val intent = if (isFirstTime) {
@@ -125,7 +123,6 @@ class LoginActivity : AppCompatActivity() {
                             editor.putBoolean("firstTime", false)
                             editor.apply()
                             Intent(this@LoginActivity, OnboardingActivity::class.java)
-
                         } else {
                             Intent(this@LoginActivity, MainActivity::class.java)
                         }
@@ -133,21 +130,20 @@ class LoginActivity : AppCompatActivity() {
                         finish()
                     }
 
-                    //               --------- Salvando dados do Usuário ---------
-                    // Context.MODE_PRIVATE = indica que as SharedPreferences são privadas para o seu
-                    // aplicativo, ou seja, apenas seu aplicativo pode acessá-las.
-                    val sharedPreferences =
-                        getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
+                    // Salvando dados do Usuário
+                    val sharedPreferences = getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
                     editor.putLong("idUsuario", response.body()!!.id)
                     editor.putString("token", response.body()!!.token)
                     editor.apply()
-
                 } else {
                     // Tratamento de erros
                     when (response.code()) {
-                        404 -> binding.mensagemDeErro.text = "Email não encontrado no sistema"
-                        403 -> binding.mensagemDeErro.text = "Email ou senha incorretos"
+                        400 -> binding.mensagemDeErro.text = "Requisição inválida"
+                        401 -> binding.mensagemDeErro.text = "Não autorizado"
+                        403 -> binding.mensagemDeErro.text = "Credenciais inválidas"
+                        404 -> binding.mensagemDeErro.text = "Usuário não encontrado"
+                        500 -> binding.mensagemDeErro.text = "Erro no servidor"
                         else -> binding.mensagemDeErro.text = "Erro desconhecido"
                     }
                 }
@@ -159,6 +155,7 @@ class LoginActivity : AppCompatActivity() {
                 "Erro ao realizar login".also { binding.mensagemDeErro.text = it }
             }
         })
+
     }
 
 }

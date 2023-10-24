@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.util.Patterns
+import com.google.gson.JsonSyntaxException
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
@@ -14,6 +15,7 @@ import sptech.moca.api.EndpointClient
 import sptech.moca.databinding.ActivityCadastroBinding
 import sptech.moca.model.UserModel
 import sptech.moca.util.NetworkUtils
+import java.io.IOException
 
 class CadastroActivity : AppCompatActivity() {
 
@@ -101,7 +103,7 @@ class CadastroActivity : AppCompatActivity() {
                     binding.inputConfirmeSenha.error = "Preencha os campos!"
                     return@setOnClickListener // "mata" o método
                 }
-                !binding.inputSenha.text.equals(binding.inputConfirmeSenha.text) -> {
+                !binding.inputSenha.text.toString().equals(binding.inputConfirmeSenha.text.toString()) -> {
                     "Senha e confirme senha não conferem!".also { binding.mensagemDeErro.text = it }
                 }
                 binding.inputSenha.text.length < 6 -> {
@@ -124,7 +126,7 @@ class CadastroActivity : AppCompatActivity() {
 
 
     private fun cadastro() {
-        val retrofitClient = NetworkUtils.getRetrofitInstance("http://26.239.63.16:8080/api/")
+        val retrofitClient = NetworkUtils.getRetrofitInstance()
         val endpoint = retrofitClient.create(EndpointClient::class.java)
 
         // Crie sua carga útil "raw" como uma String
@@ -140,21 +142,38 @@ class CadastroActivity : AppCompatActivity() {
 
         callback.enqueue(object : retrofit2.Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                if (response.isSuccessful) {
-                    "".also { binding.mensagemDeErro.text = it }
-                    //Mudando de tela caso o cadastro seja efetuado com sucesso
-                    val intent = Intent(this@CadastroActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                } else if (response.code() == 409) {
-                    "Email já existente!".also { binding.mensagemDeErro.text = it }
+                when {
+                    response.isSuccessful -> {
+                        "".also { binding.mensagemDeErro.text = it }
+                        // Mudando de tela caso o cadastro seja efetuado com sucesso
+                        val intent = Intent(this@CadastroActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                    }
+                    response.code() == 409 -> {
+                        "Email já existente!".also { binding.mensagemDeErro.text = it }
+                    }
+                    else -> {
+                        // Tratamento de erros genéricos
+                        val errorMsg = when (response.code()) {
+                            404 -> "Recurso não encontrado"
+                            500 -> "Erro interno do servidor"
+                            else -> "Erro desconhecido: ${response.code()}"
+                        }
+                        errorMsg.also { binding.mensagemDeErro.text = it }
+                    }
                 }
             }
 
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                println("Erro ao realizar login!\nErro: ${t.message}")
+                val errorMsg = when (t) {
+                    is IOException -> "Erro de conexão: Verifique sua conexão com a internet."
+                    is JsonSyntaxException -> "Erro de parsing: A resposta do servidor não pôde ser analisada."
+                    else -> "Erro ao realizar login!\nErro: ${t.message}"
+                }
+                errorMsg.also { binding.mensagemDeErro.text = it }
             }
-
         })
+
 
 
     }

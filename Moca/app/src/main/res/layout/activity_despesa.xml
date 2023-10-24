@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fundo_despesa"
+    android:paddingBottom="90dp"
     tools:context=".activity.DespesaActivity">
 
     <ScrollView
@@ -153,7 +154,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="40dp"
-                                    android:text="R$1200,00"
+                                    android:text="R$0.0"
                                     android:textColor="@color/black"
                                     android:textSize="25sp"
                                     android:textStyle="bold"
@@ -190,6 +191,12 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewDespesa"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp" />
 
                 </LinearLayout>
 

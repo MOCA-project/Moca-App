@@ -39,7 +39,7 @@ class DashboardFragment : Fragment() {
 
 
     private fun dashboardRequest() {
-        val retrofitClient = NetworkUtils.getRetrofitInstance("http://26.239.63.16:8080/api/")
+        val retrofitClient = NetworkUtils.getRetrofitInstance()
         val endpoint = retrofitClient.create(EndpointHome::class.java)
 
         val sharedPreferences =
@@ -51,7 +51,7 @@ class DashboardFragment : Fragment() {
 
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
 
-        val callback = endpoint.getInformations(idUsuario, posicaoSpinner, ano)
+        val callback = endpoint.getInformations(idUsuario, 10, ano)
 
         callback.enqueue(object : retrofit2.Callback<HomeInformationsModel> {
             override fun onResponse(
