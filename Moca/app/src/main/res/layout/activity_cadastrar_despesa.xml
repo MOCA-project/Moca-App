@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verde"
-    tools:context=".activity.CadastrarReceitas">
+    android:background="@color/vermelho"
+    tools:context=".activity.CadastrarDespesa">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,13 +14,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bola_2_receita"
+            android:src="@drawable/bola_1_despesa"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bola_1_receita"
+            android:src="@drawable/bola_2_despesa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_editor_absoluteY="30dp"
             tools:ignore="MissingConstraints" />
@@ -157,7 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/background_receita"
+                    android:background="@drawable/background_despesa"
                     android:text="@string/adicionar_receita"
                     android:textAllCaps="false"
                     android:textColor="@color/white"

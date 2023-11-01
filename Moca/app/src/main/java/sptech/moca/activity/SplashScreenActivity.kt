@@ -43,12 +43,21 @@ class SplashScreenActivity : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
 
                 if (sharedPreferences.contains("idUsuario") && sharedPreferences.contains("token")) {
-                    // As SharedPreferences existem e estão preenchidas
-                    startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                    val idUsuario = sharedPreferences.getLong("idUsuario", 0)
+                    val token = sharedPreferences.getString("token", "")
+
+                    if (idUsuario != 0L && !token.isNullOrEmpty()) {
+                        // As SharedPreferences existem e estão preenchidas com valores não nulos ou vazios
+                        startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                    } else {
+                        // As SharedPreferences existem, mas pelo menos um valor é nulo ou vazio
+                        startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
+                    }
                 } else {
-                    // As SharedPreferences não existem ou não estão preenchidas
+                    // As SharedPreferences não existem
                     startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
                 }
+
 
                 finish()
             }

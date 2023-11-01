@@ -18,7 +18,7 @@ interface EndpointDespesa {
         @Path("idUsuario") idUsuario: Long,
         @Path("mes") mes: Int,
         @Path("ano") ano: Int
-    ): Call<DespesaModel>
+    ): Call<List<DespesaModel>>
 
     // Despesa
     @Headers("Content-Type: application/json")

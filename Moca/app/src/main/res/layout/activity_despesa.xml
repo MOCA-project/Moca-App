@@ -150,6 +150,7 @@
                                     android:fontFamily="@font/montserrat_bold"/>
 
                                 <TextView
+                                    android:id="@+id/valor_despesa"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
