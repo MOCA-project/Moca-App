@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
 import sptech.moca.model.ReceitaModel
@@ -25,4 +26,11 @@ interface EndpointReceita {
     @Headers("Content-Type: application/json")
     @POST("receitas/")
     fun postCadastrarReceita(@Body requestBody: RequestBody): Call<ReceitaModel>
+
+    @Headers("Content-Type: application/json")
+    @PATCH("receitas/{idReceita}")
+    fun editarReceita(
+        @Path("idReceita") idReceita: Long,
+        @Body requestBody: RequestBody
+    ): Call<ReceitaModel>
 }
