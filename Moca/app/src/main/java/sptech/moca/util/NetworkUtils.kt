@@ -12,9 +12,10 @@ import javax.net.ssl.X509TrustManager
 class NetworkUtils {
 
     companion object {
+        //https://54.225.15.170:8443/api/
         fun getRetrofitInstance(): Retrofit {
             return Retrofit.Builder()
-                .baseUrl("https://54.225.15.170:8443/api/")
+                .baseUrl("http://192.168.15.185:8080/api/")
                 .client(getUnsafeOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

@@ -12,13 +12,10 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Response
-import sptech.moca.R
-import sptech.moca.api.EndpointClient
 import sptech.moca.api.EndpointReceita
 import sptech.moca.databinding.ActivityCadastrarReceitasBinding
-import sptech.moca.databinding.ActivityCadastroBinding
 import sptech.moca.fragment.ReceitaFragment
-import sptech.moca.model.OpcaoReceitaModel
+import sptech.moca.model.OpcaoReceitaDespesaModel
 import sptech.moca.model.ReceitaModel
 import sptech.moca.util.NetworkUtils
 import java.util.Calendar
@@ -108,7 +105,7 @@ class CadastrarReceitas : AppCompatActivity() {
             return
         }
 
-        val opcaoSelecionada = binding.categoriaAdicionarReceita.selectedItem as OpcaoReceitaModel
+        val opcaoSelecionada = binding.categoriaAdicionarReceita.selectedItem as OpcaoReceitaDespesaModel
         val idTipoReceita = opcaoSelecionada.id
 
 
