@@ -2,6 +2,7 @@ package sptech.moca.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import sptech.moca.R
+import sptech.moca.activity.CadastrarReceitas
+import sptech.moca.activity.LoginActivity
 import sptech.moca.adapter.ReceitaAdapter
 import sptech.moca.api.EndpointHome
 import sptech.moca.api.EndpointReceita
@@ -24,7 +27,6 @@ import sptech.moca.util.NetworkUtils
 import java.util.Calendar
 
 class ReceitaFragment : Fragment() {
-
     private var _binding: ActivityReceitaBinding? = null
     private val binding get() = _binding!!
 
@@ -43,8 +45,10 @@ class ReceitaFragment : Fragment() {
         adaptador = ReceitaAdapter(receitaList)
         recyclerView.adapter = adaptador
 
-        dashboardRequest()
-        receitaRequest()
+        binding.btnIrCadastrarReceita.setOnClickListener {
+            val intent = Intent(requireContext(), CadastrarReceitas::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
@@ -58,7 +62,7 @@ class ReceitaFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val ano = calendar.get(Calendar.YEAR)
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
-        val callback = endpoint.getInformations(idUsuario, 10, ano)
+        val callback = endpoint.getInformations(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : Callback<HomeInformationsModel> {
             override fun onResponse(
@@ -66,18 +70,18 @@ class ReceitaFragment : Fragment() {
                 response: Response<HomeInformationsModel>
             ) {
                 if (response.isSuccessful) {
-                    // Valores
-                    "R$ ${response.body()!!.receita}".also {
-                        binding.receitaUsuarioRecetas.text = it
+                    val body = response.body()
+                    if (body != null) {
+                        // Valores
+                        binding.receitaUsuarioRecetas.text = String.format("R$ %.2f", body.receita)
+                        // Após receber os dados da dashboard, faça a chamada para receitaRequest
                     }
-
-                    // Após receber os dados da dashboard, faça a chamada para receitaRequest
-
                 }
             }
 
             override fun onFailure(call: Call<HomeInformationsModel>, t: Throwable) {
                 // Lidar com o erro
+                Log.e("ReceitaFragment", "Erro na requisição: ${t.message}", t)
             }
         })
     }
@@ -91,16 +95,22 @@ class ReceitaFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val ano = calendar.get(Calendar.YEAR)
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
-        val callback = endpoint.getInformacoesReceita(idUsuario, 10, ano)
+        val callback =
+            endpoint.getInformacoesReceita(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : Callback<List<ReceitaModel>> {
-            override fun onResponse(call: Call<List<ReceitaModel>>, response: Response<List<ReceitaModel>>) {
+            override fun onResponse(
+                call: Call<List<ReceitaModel>>,
+                response: Response<List<ReceitaModel>>
+            ) {
                 if (response.isSuccessful) {
                     val receitas = response.body()
                     if (receitas != null) {
-                        receitaList.clear()
                         receitaList.addAll(receitas)
+                        // Notifique o adaptador sobre a mudança nos dados
                         adaptador.notifyDataSetChanged()
+                        println(receitas)
+                        // Adicione a verificação de nulo aqui
                         Log.d("ReceitaFragment", "Resposta bem-sucedida $receitas")
                     }
                 }
@@ -111,6 +121,13 @@ class ReceitaFragment : Fragment() {
                 Log.e("ReceitaFragment", "Erro na requisição: ${t.message}", t)
             }
         })
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dashboardRequest()
+        receitaRequest()
     }
 
     override fun onDestroyView() {

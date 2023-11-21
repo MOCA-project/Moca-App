@@ -51,7 +51,7 @@ class DashboardFragment : Fragment() {
 
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
 
-        val callback = endpoint.getInformations(idUsuario, 10, ano)
+        val callback = endpoint.getInformations(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : retrofit2.Callback<HomeInformationsModel> {
             override fun onResponse(
