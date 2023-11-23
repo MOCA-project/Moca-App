@@ -118,6 +118,9 @@
     <string name="categoria">Categoria</string>
     <string name="descricao">Descrição</string>
     <string name="data">Data</string>
+    <string name="tipoDespesa">Tipo de despesa</string>
+    <string name="listaCartoes">Cartão</string>
+    <string name="parcelas">Cartão</string>
     <string name="adicionar_receita">Adicionar Receita</string>
 
 </resources>

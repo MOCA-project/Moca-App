@@ -15,7 +15,7 @@ interface EndpointDespesa {
 
     // Requsição das informações da DESPESA
     @Headers("Content-Type: application/json")
-    @GET("despesas/{idUsuario}/{novoMes}/{novoAno}")
+    @GET("despesas/{idUsuario}/{mes}/{ano}")
     fun getInformationsExpence(
         @Path("idUsuario") idUsuario: Long,
         @Path("mes") mes: Int,

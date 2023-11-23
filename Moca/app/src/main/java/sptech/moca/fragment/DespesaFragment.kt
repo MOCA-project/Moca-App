@@ -47,6 +47,8 @@ class DespesaFragment : Fragment() {
         dashboardRequest()
         despesaRequest()
 
+        
+
         return view
     }
 
@@ -59,7 +61,7 @@ class DespesaFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val ano = calendar.get(Calendar.YEAR)
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
-        val callback = endpoint.getInformations(idUsuario, 10, ano)
+        val callback = endpoint.getInformations(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : Callback<HomeInformationsModel> {
             override fun onResponse(
@@ -67,13 +69,12 @@ class DespesaFragment : Fragment() {
                 response: Response<HomeInformationsModel>
             ) {
                 if (response.isSuccessful) {
-                    // Valores
-                    "R$ ${response.body()!!.despesas}".also {
-                        binding.valorDespesa.text = it
+                    val body = response.body()
+                    if (body != null) {
+                        // Valores
+                        binding.valorDespesa.text = String.format("R$ %.2f", body.despesas)
+                        // Após receber os dados da dashboard, faça a chamada para receitaRequest
                     }
-
-                    // Após receber os dados da dashboard, faça a chamada para receitaRequest
-
                 }
             }
 
@@ -92,7 +93,7 @@ class DespesaFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val ano = calendar.get(Calendar.YEAR)
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
-        val callback = endpoint.getInformationsExpence(idUsuario, 10, ano)
+        val callback = endpoint.getInformationsExpence(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : Callback<List<DespesaModel>> {
             override fun onResponse(call: Call<List<DespesaModel>>, response: Response<List<DespesaModel>>) {
@@ -102,16 +103,22 @@ class DespesaFragment : Fragment() {
                         despesaList.clear()
                         despesaList.addAll(despesas)
                         adaptador.notifyDataSetChanged()
-                        Log.d("ReceitaFragment", "Resposta bem-sucedida $despesas")
+                        Log.d("DespesaFragment", "Resposta bem-sucedida $despesas")
                     }
                 }
             }
 
             override fun onFailure(call: Call<List<DespesaModel>>, t: Throwable) {
                 // Lidar com o erro
-                Log.e("ReceitaFragment", "Erro na requisição: ${t.message}", t)
+                Log.e("DespesaFragment", "Erro na requisição: ${t.message}", t)
             }
         })
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dashboardRequest()
+        despesaRequest()
     }
 
     override fun onDestroyView() {

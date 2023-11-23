@@ -1,10 +1,13 @@
 package sptech.moca.activity
 
 import android.R.id
+import android.app.DatePickerDialog
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.EditText
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -28,7 +31,7 @@ class CadastrarDespesa : AppCompatActivity() {
     private var idCartao: Int? = null
     private var listaCartoes: List<CartaoModel> = emptyList()
 
-    val opcoesReceita = listOf(
+    val opcoesDespesa = listOf(
         "Moradia",
         "Alimentação",
         "Transporte",
@@ -71,16 +74,65 @@ class CadastrarDespesa : AppCompatActivity() {
         setContentView(R.layout.activity_cadastrar_despesa)
 
         receberCartoesCliente()
+
+        binding.selecionarData.setOnClickListener {
+            hideKeyboard()
+            showDatePicker()
+        }
+
+        binding.selecionarData.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                hideKeyboard()
+                showDatePicker()
+            }
+        }
+
+
+        val adapterCategoria = ArrayAdapter(this, android.R.layout.simple_spinner_item, opcoesDespesa)
+        adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.categoriaAdicionarDespesa.adapter = adapterCategoria
+
+        val adapterTipoDespesa = ArrayAdapter(this, android.R.layout.simple_spinner_item, tipoDespesa)
+        adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        val adapterQtdParcelas = ArrayAdapter(this, android.R.layout.simple_spinner_item, qtdParcelas)
+        adapterCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    }
+
+    private fun processSelectedDate(year: Int, month: Int, day: Int) {
+        selectedDate = "$year-${month + 1}-$day"
+        binding.selecionarData.setText(selectedDate)
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        currentFocus?.let {
+            inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
+        }
+    }
+
+    private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                processSelectedDate(year, month, day)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+
+        datePickerDialog.show()
     }
 
     fun receberCartoesCliente() {
         val retrofitClient = NetworkUtils.getRetrofitInstance()
         val endpoint = retrofitClient.create(EndpointCartao::class.java)
-
         val sharedPreferences = getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
         val idUsuario = sharedPreferences.getLong("idUsuario", -1)
-
-
         val callback = endpoint.getCartoes(idUsuario, Calendar.MONTH, Calendar.YEAR)
 
         callback.enqueue(object : retrofit2.Callback<List<CartaoModel>> {
@@ -109,26 +161,20 @@ class CadastrarDespesa : AppCompatActivity() {
     fun cadastrarDespesaFixa() {
         val retrofitClient = NetworkUtils.getRetrofitInstance()
         val endpoint = retrofitClient.create(EndpointDespesa::class.java)
-
         val sharedPreferences = getSharedPreferences("DadosUsuario", Context.MODE_PRIVATE)
         val idUsuario = sharedPreferences.getLong("idUsuario", -1)
-
         if (idUsuario == -1L) {
             // O idUsuario é inválido, faça algo aqui, como mostrar uma mensagem de erro
             // ou redirecionar o usuário para a tela de login
             println("O idUsuario é inválido")
             return
         }
-
         val opcaoSelecionada =
             binding.categoriaAdicionarDespesa.selectedItem as OpcaoReceitaDespesaModel
         val idTipoDespesa = opcaoSelecionada.id
-
         // Crie sua carga útil "raw" como uma String
         var jsonPayload = ""
-
         val valorDespesaStr = binding.valorDespesaUsuario.text.toString()
-
 // Verifica se o valorDespesaStr é um número válido
         val valorDespesa = if (valorDespesaStr.isNotBlank()) {
             valorDespesaStr.toDouble()
@@ -136,7 +182,6 @@ class CadastrarDespesa : AppCompatActivity() {
             // Se não for um número válido, atribua um valor padrão ou trate conforme necessário
             0.0
         }
-
         if (listaCartoes.any { cartao ->
                 (cartao.limite - cartao.utilizado) >= (valorDespesa * 12)
             }) {
