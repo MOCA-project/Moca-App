@@ -28,4 +28,15 @@
 
     <!--    Tela de despesas -->
     <color name="fundo_despesa">#EB5050</color>
+
+    <!--    Tela de Cartões-->
+    <color name="icon_text">#67748E</color>
+    <color name="text">#2F394E</color>
+    <color name="azul_royal">#0071C5</color>
+    <color name="verde_esmeralda">#50C878</color>
+    <color name="amarelo_sol">#FFD700</color>
+    <color name="vermelho_cereja">#DC143C</color>
+    <color name="roxo_violeta">#8A2BE2</color>
+    <color name="laranja_coral">#FF7F50</color>
+    <color name="cinza_prata">#C0C0C0</color>
 </resources>

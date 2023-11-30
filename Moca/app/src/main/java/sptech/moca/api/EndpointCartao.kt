@@ -17,13 +17,17 @@ interface EndpointCartao {
         @Path("idUsuario") idUsuario: Long,
         @Path("mes") mes: Int,
         @Path("ano") ano: Int
-    ) : Call<List<CartaoModel>>
+    ) : Call<CartoesResponse>
 
     @Headers("Content-Type: application/json")
-    @POST("cartoes")
+    @POST("cartoes/")
     fun cadastrarCartao(@Body requestBody: RequestBody) : Call<CartaoModel>
 
     @DELETE("cartoes/{idCartao}")
     fun deletarCartao(@Path("idCartao") idCartao: Long) : Call<CartaoModel>
 
 }
+
+data class CartoesResponse(
+    val cartoes: List<CartaoModel>
+)

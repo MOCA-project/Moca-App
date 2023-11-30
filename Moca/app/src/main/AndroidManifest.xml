@@ -17,6 +17,18 @@
         android:theme="@style/Theme.Moca"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ExtratoPorquinhoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CadastrarFundoPorquinhoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CadastrarPorquinhoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CadastrarCartoesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CadastrarDespesa"
             android:exported="false" />
         <activity

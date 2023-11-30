@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.gms.fitness.data.DataPoint
+import org.eazegraph.lib.models.PieModel
 import retrofit2.Response
 import sptech.moca.api.EndpointHome
 import sptech.moca.databinding.ActivityDashboardBinding

@@ -157,7 +157,7 @@ class CadastrarReceitas : AppCompatActivity() {
                 if (response.isSuccessful) {
                     // Sucesso, imprima o corpo da resposta
                     println("Resposta bem-sucedida: ${response.body()}")
-                    val intent = Intent(this@CadastrarReceitas, ReceitaFragment::class.java)
+                    val intent = Intent(this@CadastrarReceitas, MainActivity::class.java)
                     startActivity(intent)
                     println("Deu certo!")
                 } else {

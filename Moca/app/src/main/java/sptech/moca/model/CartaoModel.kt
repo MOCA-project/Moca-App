@@ -1,12 +1,13 @@
 package sptech.moca.model
 
 data class CartaoModel(
-    val limite: Double,
-    val utilizado: Double,
-    val idCliente: Long,
-    val idTipo: Long,
-    val idCor: Long,
-    val Bandeira: String,
     val apelido: String,
+    val bandeira: String,
+    val idCartao: Long,
+    val idCor: Long,
+    val limite: Double,
+    val porcentagemUtilizado: Double,
+    val utilizado: Double,
     val vencimento: String
 )
+

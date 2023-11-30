@@ -177,7 +177,7 @@
                                 android:layout_marginVertical="10dp"
                                 android:text="@string/tipoDespesa" />
 
-                            <androidx.appcompat.widget.AppCompatSpinner
+                            <Spinner
                                 android:id="@+id/adicionar_tipo_despesa"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
@@ -186,8 +186,10 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/lly_cartao"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView
@@ -196,7 +198,7 @@
                                 android:layout_marginVertical="10dp"
                                 android:text="@string/listaCartoes" />
 
-                            <androidx.appcompat.widget.AppCompatSpinner
+                            <Spinner
                                 android:id="@+id/cartao_adicionar_despesa"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
@@ -205,15 +207,17 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/lly_parcelas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="10dp"
-                                android:text="@string/listaCartoes" />
+                                android:text="@string/parcelas" />
 
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/parcelas_adicionar_despesa"

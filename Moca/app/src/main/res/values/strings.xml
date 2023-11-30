@@ -120,7 +120,31 @@
     <string name="data">Data</string>
     <string name="tipoDespesa">Tipo de despesa</string>
     <string name="listaCartoes">Cartão</string>
-    <string name="parcelas">Cartão</string>
+    <string name="parcelas">Parcelas</string>
     <string name="adicionar_receita">Adicionar Receita</string>
+
+    <!--    Cartões -->
+    <string name="novo_cartao">Novo Cartão</string>
+    <string name="meus_cartoes">Meus Cartões</string>
+    <string name="limite">Limite</string>
+    <string name="apelido">Apelido</string>
+    <string name="tipo_cartao">Tipo</string>
+    <string name="vencimento">Vencimento</string>
+    <string name="bandeira">Bandeira</string>
+    <string name="cor_cartao">Cor</string>
+    <string name="adicionar_cartao">Adicionar Cartão</string>
+    <string name="cadastrar_cartao">Cadastrar Cartão</string>
+
+    <!--    Porquinho -->
+    <string name="novo_porquinho">Novo Porquinho</string>
+    <string name="meus_porquinhos">Meus Porquinhos</string>
+    <string name="nome_meta">Nome meta</string>
+    <string name="valor_final_meta">Valor final da meta</string>
+    <string name="icone_porquinho">Ícone</string>
+    <string name="adicionar_porquinho">Adicionar Porquinho</string>
+    <string name="valor_guardado">Valor Guardado</string>
+    <string name="adicionar_valor">Adicionar Valor</string>
+    <string name="meta">Meta</string>
+    <string name="retirar_valor">Retirar Valor</string>
 
 </resources>

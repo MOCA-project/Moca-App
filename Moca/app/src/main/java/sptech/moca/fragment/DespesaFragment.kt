@@ -1,6 +1,7 @@
 package sptech.moca.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import sptech.moca.R
+import sptech.moca.activity.CadastrarDespesa
 import sptech.moca.adapter.DespesaAdapter
 import sptech.moca.adapter.ReceitaAdapter
 import sptech.moca.api.EndpointDespesa
@@ -32,6 +34,7 @@ class DespesaFragment : Fragment() {
 
     private val despesaList = mutableListOf<DespesaModel>()
     private lateinit var adaptador: DespesaAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,7 +50,10 @@ class DespesaFragment : Fragment() {
         dashboardRequest()
         despesaRequest()
 
-        
+        binding.irAdicionarDespesa.setOnClickListener {
+            val intent = Intent(requireContext(), CadastrarDespesa::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
@@ -93,10 +99,14 @@ class DespesaFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val ano = calendar.get(Calendar.YEAR)
         val posicaoSpinner = binding.spinnerMeses.selectedItemPosition + 1
-        val callback = endpoint.getInformationsExpence(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
+        val callback =
+            endpoint.getInformationsExpence(idUsuario, calendar.get(Calendar.MONTH) + 1, ano)
 
         callback.enqueue(object : Callback<List<DespesaModel>> {
-            override fun onResponse(call: Call<List<DespesaModel>>, response: Response<List<DespesaModel>>) {
+            override fun onResponse(
+                call: Call<List<DespesaModel>>,
+                response: Response<List<DespesaModel>>
+            ) {
                 if (response.isSuccessful) {
                     val despesas = response.body()
                     if (despesas != null) {
